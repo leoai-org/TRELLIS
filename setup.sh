@@ -216,7 +216,7 @@ if [ "$MIPGAUSSIAN" = true ] ; then
     if [ "$PLATFORM" = "cuda" ] ; then
         mkdir -p /tmp/extensions
         git clone https://github.com/autonomousvision/mip-splatting.git /tmp/extensions/mip-splatting
-        pip install /tmp/extensions/mip-splatting/submodules/diff-gaussian-rasterization/
+        TORCH_CUDA_ARCH_LIST="6.1;6.2;7.0;7.5;8.0;8.6" pip install /tmp/extensions/mip-splatting/submodules/diff-gaussian-rasterization/
     else
         echo "[MIPGAUSSIAN] Unsupported platform: $PLATFORM"
     fi
